@@ -1,0 +1,13 @@
+{
+    "name": "payutc/bdecotiz",
+    "type": "project",
+    "description": "Outil de cotisation en ligne du BDE.",
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+    "require": {
+        "slim/slim": "2.*",
+        "ginger/client": "*",
+        "payutc/php-client": "dev-master"
+    }
+}
