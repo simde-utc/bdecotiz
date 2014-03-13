@@ -76,9 +76,18 @@ $app->get('/callback', function($gingerClient, $payutcClient, $_CONFIG) {
     if($_GET["tra_id"] && $_GET["username"]) {
         $tra_id = $_GET["tra_id"];
         $username = $_GET["username"];
+        $userInfo = $gingerClient->getUser($username);
         $payutcClient->loginApp(array("key" => $_CONFIG["payutc_apikey"]));
         $transaction = $payutcClient->getTransactionInfo($_CONFIG["payutc_funid"], $tra_id);
-        if($transaction->status == 'V') {
+        
+        $transactionDate = new DateTime($transaction->created);
+        $now = new DateTime("now");
+        $interval = date_diff($transactionDate, $now);
+        if($transaction->status == 'V' && 
+            !$userInfo->is_cotisant && 
+            $userInfo->mail == $transaction->email &&
+            $interval->days < 10) 
+        {
             $gingerClient->addCotisation(
                 $username, 
                 date("Y-m-d"), 
