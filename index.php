@@ -72,7 +72,7 @@ $app->get('/cotiser', function() use($app, $gingerClient, $payutcClient, $_CONFI
     }
 });
 
-$app->get('/callback', function($gingerClient, $payutcClient, $_CONFIG) {
+$app->get('/callback', function() use($gingerClient, $payutcClient, $_CONFIG) {
     if($_GET["tra_id"] && $_GET["username"]) {
         $tra_id = $_GET["tra_id"];
         $username = $_GET["username"];
