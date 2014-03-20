@@ -92,7 +92,7 @@ $app->get('/callback', function() use($gingerClient, $payutcClient, $_CONFIG) {
                 $username, 
                 date("Y-m-d"), 
                 date("Y-m-d", mktime(0,0,0,8,31,date("m") > 8 ? date("Y") + 1: date("Y"))), 
-                $transaction->purchases[0]['pur_price']);
+                $transaction->purchases[0]->pur_price);
         }
     }
 });

@@ -67,7 +67,7 @@
       <?php if($loggedin): ?>
         <p class="lead">Bonjour <?php echo $userInfo->prenom; ?> <?php echo $userInfo->nom; ?> !</p>
         <?php if($userInfo->is_cotisant): ?>
-            <p>Félicitations tu es déjà <strong>cotisant</strong>.</p>
+            <p>Félicitations tu es <strong>cotisant</strong>.</p>
         <?php else: ?>
             <p>Tu n'es pas encore cotisant.</p>
             <a href="<?php echo $cotiseUrl; ?>" class="btn btn-success pull-right">Cotiser maintenant !</a><br /><br />
