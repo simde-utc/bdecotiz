@@ -73,7 +73,7 @@
             <a href="<?php echo $cotiseUrl; ?>" class="btn btn-success pull-right">Cotiser maintenant !</a><br /><br />
         <?php endif; ?>
         <a href="<?php echo $logoutUrl; ?>" class="btn btn-primary pull-right">Déconnexion</a>
-      <? else: ?>
+      <?php else: ?>
         <p class="lead"></p>
         <p>Cet outil te permet de cotiser au BDE-UTC en payant par internet. <br />
         Connecte toi pour regarder si tu es déjà cotisant.</p>
