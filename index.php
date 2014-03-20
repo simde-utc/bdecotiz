@@ -78,7 +78,7 @@ $app->get('/callback', function() use($gingerClient, $payutcClient, $_CONFIG) {
         $username = $_GET["username"];
         $userInfo = $gingerClient->getUser($username);
         $payutcClient->loginApp(array("key" => $_CONFIG["payutc_apikey"]));
-        $transaction = $payutcClient->getTransactionInfo($_CONFIG["payutc_funid"], $tra_id);
+        $transaction = $payutcClient->getTransactionInfo(array("fun_id" => $_CONFIG["payutc_funid"], "tra_id" => $tra_id));
         
         $transactionDate = new DateTime($transaction->created);
         $now = new DateTime("now");
