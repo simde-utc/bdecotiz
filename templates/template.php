@@ -62,7 +62,7 @@
     <!-- Begin page content -->
     <div class="container">
       <div class="page-header">
-        <h1><?php echo $title; ?></h1>
+        <h1><?php echo $title; ?> <img src="img/bde.jpg" style="margin-top: -20px;" height="90px" /></h1>
       </div>
       <?php if($loggedin): ?>
         <p class="lead">Bonjour <?php echo $userInfo->prenom; ?> <?php echo $userInfo->nom; ?> !</p>
@@ -79,7 +79,6 @@
         Connecte toi pour regarder si tu es déjà cotisant.</p>
         <a href="<?php echo $loginUrl; ?>" class="btn btn-primary pull-right">Connexion</a>
       <?php endif; ?>
-      <img src="img/bde.jpg" width="100%" />
     </div>
 
     <div id="footer">
