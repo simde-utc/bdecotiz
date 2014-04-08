@@ -6,6 +6,7 @@ use \Payutc\Client\JsonException;
 
 // Load configuration
 require "config.inc.php";
+require "cas.php";
 
 // Settings for cookies
 $sessionPath = parse_url($_CONFIG["self_url"], PHP_URL_PATH);
@@ -40,10 +41,8 @@ $app->get('/logincas', function() use($app, $payutcClient, $_CONFIG) {
         $casUrl = $payutcClient->getCasUrl()."login?service=".$_CONFIG["self_url"].'logincas';
         $app->response->redirect($casUrl, 303);
     } else {
-        $user = $payutcClient->loginCas(
-            array(
-                "ticket" => $_GET["ticket"], 
-                "service" => $_CONFIG["self_url"].'logincas'));
+        $cas = new Cas($payutcClient->getCasUrl());
+        $user = $cas->authenticate($_GET["ticket"], $_CONFIG["self_url"].'logincas');
         $_SESSION['username'] = $user;
         $app->response->redirect($_CONFIG["self_url"], 303);
     }
