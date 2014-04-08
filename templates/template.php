@@ -67,17 +67,17 @@
       <?php if($loggedin): ?>
         <p class="lead">Bonjour <?php echo $userInfo->prenom; ?> <?php echo $userInfo->nom; ?> !</p>
         <?php if($userInfo->is_cotisant): ?>
-            <p>Félicitations tu es <strong>cotisant</strong>.</p>
+            <p>Félicitations tu es <strong>cotisant</strong> !</p>
             <p>Pour bénéficier des <a href="http://assos.utc.fr/partenaires" target="_blank">avantages BDE-UTC</a>, n'oublie pas de venir faire mettre la pastille BDE, sur ta carte étudiant.<br />Le BDE est actuellement en G101.</p>
         <?php else: ?>
-            <p>Tu n'es pas encore cotisant.</p>
+            <p>Tu n'es pas encore cotisant...</p>
             <a href="<?php echo $cotiseUrl; ?>" class="btn btn-success pull-right">Cotiser maintenant !</a><br /><br />
         <?php endif; ?>
         <a href="<?php echo $logoutUrl; ?>" class="btn btn-primary pull-right">Déconnexion</a>
       <?php else: ?>
         <p class="lead"></p>
         <p>Cet outil te permet de cotiser au BDE-UTC en payant par internet. <br />
-        Connecte toi pour regarder si tu es déjà cotisant.</p>
+        Connecte toi pour regarder si tu es déjà cotisant !</p>
         <a href="<?php echo $loginUrl; ?>" class="btn btn-primary pull-right">Connexion</a>
       <?php endif; ?>
     </div>
