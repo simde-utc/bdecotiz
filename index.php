@@ -14,7 +14,7 @@ session_set_cookie_params(0, $sessionPath);
 session_start();
 
 $app = new \Slim\Slim();
-$payutcClient = new AutoJsonClient($_CONFIG["payutc_server"], "WEBSALE");
+$payutcClient = new AutoJsonClient($_CONFIG["payutc_server"], "WEBSALE", array(CURLOPT_PROXY => 'http://proxyweb.utc.fr:3128'), "Payutc Json PHP Client", '', "payutc", $_CONFIG["payutc_apikey"]);
 $gingerClient = new GingerClient($_CONFIG["ginger_apikey"], $_CONFIG["ginger_server"]);
 
 $app->get('/', function() use($app, $gingerClient, $_CONFIG) {
